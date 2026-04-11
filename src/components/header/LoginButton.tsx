@@ -1,9 +1,13 @@
-const Button = () => {
+import Button from "../ui/Button"
+import Gradient from "./Gradient"
+
+const LoginButton = () => {
   return (
-    <button className="btn-primary px-4 py-2 text-[13px]">Entrar</button>
+ <div className="relative inline-flex items-center">
+  <Gradient />
+  <Button className="bg-gray-900 tracking-wider text-[12.5px] shadow-md shadow-gray-800 ">Entrar</Button>
+</div>
   )
 }
 
-export default Button
-
-
+export default LoginButton

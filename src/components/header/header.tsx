@@ -6,11 +6,11 @@ import Button from "./LoginButton"
 const Header = () => {
   return (
     <header className="w-full fixed top-0 z-50 backdrop-blur-md bg-white/70 border-b border-gray-200 shadow-lg">
-      <div className="max-w-7xl mx-auto px-2 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src={Logo} alt="Uplys Logo" width={52} height={50} />
+          <Image src={Logo} alt="Uplys Logo" width={52} height={50} className="-ml-3" />
           <span className="text-lg font-semibold text-text -ml-4 ">
             Uplys
           </span>
