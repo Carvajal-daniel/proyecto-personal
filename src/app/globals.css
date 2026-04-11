@@ -1,22 +1,36 @@
 @import "tailwindcss";
 
 :root {
+  /* 🎨 Cores principais */
+  --color-primary: #111827; /* quase preto */
+  --color-primary-light: #374151;
 
-    /* 🎨 Cores principais */
-  --color-primary: #7C3AED;
-  --color-primary-light: #A78BFA;
-  --color-success: #22C55E;
+  --color-success: #16A34A;
 
-  /* 🎨 Neutros */
-  --color-background: #F9FAFB;
+  --color-background: #FFFFFF;
   --color-surface: #FFFFFF;
 
   --color-text: #111827;
   --color-text-secondary: #6B7280;
 
+  --color-border: #E5E7EB;
+
   /* 🎨 Extras */
   --color-border: #E5E7EB;
- 
+}
+
+
+@layer components {
+  .btn-primary {
+    @apply px-5 py-2 rounded-xl text-white font-medium text-sm
+           shadow-md transition-all duration-200;
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg;
+    transform: scale(1.03);
+  }
 }
 
 @theme inline {
@@ -34,8 +48,8 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: 'Inter', sans-serif;
 }
+
