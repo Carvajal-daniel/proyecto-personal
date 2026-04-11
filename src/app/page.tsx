@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Header from "@/common/header/header";
 
 export default function Home() {
   return (
-    <div>
-      <h1>texto</h1>
-    </div>
+   <header>
+    <Header />
+   </header>
   );
 }
