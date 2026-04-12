@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/Button";
+import heroImg from "../../public/assets/hero.png";
 
 const Hero = () => {
   // Lista de imágenes para la prueba social
@@ -15,7 +16,7 @@ const Hero = () => {
       {/* Imagen de fondo principal */}
      {/* Imagen de fondo principal */}
       <Image 
-        src="/assets/Hero.png" 
+        src={heroImg} 
         alt="Fondo decorativo del Hero" 
         width={1920} // Resolução base alta
         height={1080} // Resolução base alta
