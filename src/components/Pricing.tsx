@@ -36,7 +36,7 @@ const Pricing = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-lg p-8 text-left flex flex-col justify-between ${
+              className={`rounded-lg p-8 text-left flex flex-col justify-between bg-[#1d1d1d] ${
                 plan.highlighted
                   ? "bg-surface-high neon-border-active relative"
                   : "bg-surface-high ghost-border"

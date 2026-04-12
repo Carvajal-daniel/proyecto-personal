@@ -10,8 +10,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral/70 m-1 mt-2 rounded-4xl">
-      <div className="container mx-auto flex items-center justify-between h-16 px-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral m-1 mt-3 rounded-3xl shadow-sm  shadow-primary/10">
+      <div className="container mx-auto flex items-center justify-between h-14 px-6">
 
         <div className="flex items-center">
           <Image src={Logo} alt="Logo" width={50} height={50} className="-mr-2 -ml-2" />
