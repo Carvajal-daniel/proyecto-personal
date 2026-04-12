@@ -1,10 +1,18 @@
+import {SignInButton } from "@clerk/nextjs"
 import Button from "../ui/Button"
+
+
 
 const LoginButton = () => {
   return (
  <div className="relative inline-flex items-center">
 
-  <Button className="bg-gray-900 tracking-wider text-[12.5px] shadow-sm shadow-gray-800 ">Entrar</Button>
+<SignInButton mode="modal" fallbackRedirectUrl="/">  
+  <Button>Login</Button>
+</SignInButton>
+ 
+
+
 </div>
   )
 }
