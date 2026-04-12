@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import './globals.css'
 import { esES } from "@clerk/localizations";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: 'Clerk Next.js',
@@ -15,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider localization={esES}>
-      <html lang="es">
+      <html lang="es" className={cn("font-sans", geist.variable)}>
         <body>
 
 
