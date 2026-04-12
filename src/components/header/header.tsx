@@ -5,7 +5,7 @@ import Logo from "../../../public/assets/logo1.png"
 import Link from "next/link"
 import Button from "./LoginButton"
 import Base from "./base"
-import { Show, SignInButton, UserButton, useUser } from "@clerk/nextjs"
+import { Show, UserButton, useUser } from "@clerk/nextjs"
 
 const Header = () => {
   const { user } = useUser();
@@ -17,15 +17,14 @@ const Header = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={Logo} alt="Uplys Logo" width={52} height={50} className="-ml-3" />
-         <span
-  className="
+          <span
+            className="
     text-lg font-semibold uppercase -ml-4
-    bg-gradient-to-r from-white via-gray-200 to-gray-300
-    bg-clip-text text-transparent
+    text-black/90
   "
->
-  Uplys
-</span>
+          >
+            Uplys
+          </span>
         </Link>
 
         <Base />
@@ -39,7 +38,7 @@ const Header = () => {
           </Show>
 
           <Show when="signed-out">
-              <Button />
+            <Button />
           </Show>
 
         </div>
