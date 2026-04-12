@@ -10,7 +10,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass m-2 rounded-4xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral/70 m-1 mt-2 rounded-4xl">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
 
         <div className="flex items-center">
@@ -40,12 +40,13 @@ const Navbar = () => {
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-3">
 
+
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-foreground p-2 rounded-lg hover:bg-white/5 transition"
           >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-primary" />}
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
 
           {/* DESKTOP */}
