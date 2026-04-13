@@ -25,16 +25,15 @@ const Hero = () => {
 
       {/* Título Principal - Tamaños escalonados */}
       <h1 className="relative z-10 max-w-4xl font-bold uppercase tracking-tight text-foreground">
-        <span className="mb-1 block text-5xl sm:text-6xl md:text-6xl lg:text-7xl">
-          Tu negocio
+        <span className="mb-1 block text-4xl sm:text-6xl md:text-6xl lg:text-7xl">
+          Tu negocio en
         </span>
         <span className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
-          <span className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl">en</span>
-          <span className="relative inline-block rounded-lg bg-primary/10 px-4 py-1 text-5xl text-primary neon-glow-text sm:text-6xl md:text-6xl lg:text-7xl">
+          <span className="relative inline-block rounded-lg bg-primary/10 px-4 py-1 text-4xl text-primary neon-glow-text sm:text-6xl md:text-6xl lg:text-7xl">
             piloto
           </span>
         </span>
-        <span className="mt-1 block text-5xl sm:text-6xl md:text-6xl lg:text-7xl">
+        <span className="mt-1 block text-4xl sm:text-6xl md:text-6xl lg:text-7xl">
           automático.
         </span>
       </h1>
