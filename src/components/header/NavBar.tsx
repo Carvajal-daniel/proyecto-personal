@@ -12,13 +12,13 @@ const Navbar = () => {
   return (
     // Adicionado backdrop-blur e borda sutil para definição
     <nav // No className do <nav>
-className="fixed top-2 left-2 right-2 z-50 bg-white border border-slate-600/20 shadow-xl shadow-blue-500/10 rounded-3xl">
+      className="fixed top-2 left-2 right-2 z-50 bg-white shadow-xl shadow-blue-500/10 rounded-3xl">
       <div className="container mx-auto flex items-center justify-between h-14 px-6">
-        
+
         {/* LOGO SECTION */}
         <div className="flex items-center gap-2">
           <div className="relative w-8 h-8 flex items-center justify-center">
-             <Image src={Logo} alt="Logo" width={32} height={32} className="object-contain" />
+            <Image src={Logo} alt="Logo" width={32} height={32} className="object-contain" />
           </div>
           <span className="font-bold text-lg cursor-pointer tracking-tight text-foreground bg-clip-text">
             UPLYS
@@ -31,11 +31,10 @@ className="fixed top-2 left-2 right-2 z-50 bg-white border border-slate-600/20 s
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className={`text-sm font-medium transition-all duration-200 hover:text-primary ${
-                i === 0
+              className={`text-sm font-medium transition-all duration-200 hover:text-primary ${i === 0
                   ? "text-primary underline underline-offset-8 decoration-2"
                   : "text-muted hover:text-foreground"
-              }`}
+                }`}
             >
               {item}
             </a>
@@ -81,11 +80,11 @@ className="fixed top-2 left-2 right-2 z-50 bg-white border border-slate-600/20 s
                 {item}
               </a>
             ))}
-            
+
             <hr className="w-full border-border/50" />
-            
+
             <div className="flex flex-col w-full gap-3">
-               <Button className="w-full py-6 rounded-2xl bg-primary text-white">
+              <Button className="w-full py-6 rounded-2xl bg-primary text-white">
                 Entrar na conta
               </Button>
             </div>
