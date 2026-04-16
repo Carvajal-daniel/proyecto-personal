@@ -1,3 +1,4 @@
+import Gradient from "@/utils/gradient/Gradient";
 import { Button } from "./ui/Button";
 import { Check } from "lucide-react";
 
@@ -27,16 +28,20 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 px-6">
+    <section id="pricing" className="py-24 px-6 relative">
+
+
+<Gradient primaryColor="#8B5CF6" secondaryColor="#0EA5E9" className="left-auto -right-10 top-30 !translate-x-0 h-60 w-60" />
+
       <div className="container mx-auto text-center">
-        <span className="label-tech text-muted-foreground mb-4 block">TRANSPARENCIA TOTAL</span>
-        <h2 className="display-md mb-16">Inversión para el Crecimiento.</h2>
+        <span className="label-tech text-muted-foreground mb-2 block">TRANSPARENCIA TOTAL</span>
+        <h2 className="display-md mb-4">Inversión para el Crecimiento.</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-lg p-8 text-left flex flex-col justify-between bg-[#1d1d1d] ${
+              className={`rounded-lg p-8 text-left flex flex-col justify-between bg-surface shadow-xl ${
                 plan.highlighted
                   ? "bg-surface-high neon-border-active relative"
                   : "bg-surface-high ghost-border"

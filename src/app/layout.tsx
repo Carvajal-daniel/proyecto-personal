@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import './globals.css'
-import { esES } from "@clerk/localizations";
-import { Geist } from "next/font/google";
+import { Geist, Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "900"], // 700 es Bold, 900 es Black (muy grueso)
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
-  title: 'Clerk Next.js',
+  title: 'Next.js',
   description: 'App',
 }
 
@@ -18,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider localization={esES}>
+   
       <html lang="es" className={cn("font-sans", geist.variable)}>
         <body>
 
@@ -27,6 +30,5 @@ export default function RootLayout({
 
         </body>
       </html>
-    </ClerkProvider>
   )
 }

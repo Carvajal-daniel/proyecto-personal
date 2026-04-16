@@ -5,16 +5,18 @@ import Pricing from "@/components/Pricing";
 
 export default function Home() {
   return (
-    <main>
+    <div className="overflow-hidden">
 
    <header>
     <Navbar />
    </header>
    <main>
+    <section>
     <Hero />
+    </section>
     <Pricing />
 
    </main>
-    </main>
+    </div>
   );
 }
