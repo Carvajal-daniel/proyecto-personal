@@ -9,34 +9,35 @@
 ========================= */
 @layer base {
   :root {
-    /* 🎯 SUA PALETA */
-    --primary: #3fbb29;
-    --secondary: #178A01;
-    --tertiary: #FFD3CE;
-    --neutral: #000000;
+    /* 🎯 BRAND */
+    --primary: #0EA5E9;         /* sky vivo */
+    --secondary: #8B5CF6;       /* lavanda média */
+    --accent: #38BDF8;          /* sky claro */
 
-    /* 🎯 FOREGROUNDS */
-    --primary-foreground: #000000;
-    --secondary-foreground: #ffffff;
+    /* 🎯 FUNDO */
+    --background: #F8FBFF;      /* branco sky */
+    --background-soft: #F1F5F9; /* slate muito claro */
 
-    /* 🎯 BASE UI */
-    --background: #0a0a0a;
-    --foreground: #e4e4e4;
+    /* 🎯 TEXTO */
+    --foreground: #0F172A;      /* slate escuro */
+    --neutral: #334155;         /* texto secundário */
+    --muted: #94A3B8;           /* rótulos e hints */
 
-    --card: #141414;
-    --card-foreground: #e4e4e4;
+    /* 🎯 CARDS */
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
 
-    --popover: #1a1a1a;
-    --popover-foreground: #e4e4e4;
+    /* 🎯 SEÇÕES */
+    --soft-section: #E0F2FE;    /* sky pastel */
+    --soft-section-2: #EDE9FE;  /* lavanda pastel */
 
-    --muted: #1f1f1f;
-    --muted-foreground: #888888;
+    /* 🎯 BORDAS */
+    --border: #DDE4F0;
+    --input: #DDE4F0;
 
-    --border: #2a2a2a;
-    --input: #2a2a2a;
-    --ring: var(--primary);
-
-    --radius: 1.5rem;
+    /* 🎯 INTERAÇÃO */
+    --ring: #0EA5E9;
+    --radius: 0.75rem;
   }
 }
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/Button";
+import Gradient from "@/utils/gradient/Gradient";
 
 const Hero = () => {
   // Lista de imágenes para la prueba social
@@ -11,14 +12,13 @@ const Hero = () => {
 
   return (
     <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-20 text-center md:px-6 lg:min-h-screen">
-      
-      {/* Brillo de neón ambiental (Fondo) - Ajustado para ser responsivo */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 md:top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[80px] md:h-[500px] md:w-[700px] md:blur-[120px]" />
+      <Gradient />
+
 
       {/* Etiqueta superior */}
       <div className="relative z-10 mb-6 flex items-center gap-2">
         <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-primary" />
-        <span className="rounded-full bg-neutral/40 px-3 py-1 text-[9px] font-medium tracking-wider text-foreground/80 md:px-4 md:text-[10px]">
+        <span className="rounded-full bg-primary/80 px-3 py-1 text-[9px] font-medium tracking-wider text-foreground/80 md:px-4 md:text-[10px]">
           INTELIGENCIA ARTIFICIAL PROACTIVA
         </span>
       </div>
