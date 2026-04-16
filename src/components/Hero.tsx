@@ -17,8 +17,8 @@ const Hero = () => {
 
       {/* Etiqueta superior */}
       <div className="relative z-10 mb-6 flex items-center gap-2">
-        <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-primary" />
-        <span className="rounded-full bg-primary/80 px-3 py-1 text-[9px] font-medium tracking-wider text-foreground/80 md:px-4 md:text-[10px]">
+        <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-secondary" />
+        <span className="rounded-full bg-secondary  px-3 py-[3px] text-[9px] font-medium tracking-wider text-white/80 md:px-4 md:text-[10px]">
           INTELIGENCIA ARTIFICIAL PROACTIVA
         </span>
       </div>
