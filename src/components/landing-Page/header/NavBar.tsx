@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../ui/Button";
 import { Settings, Bell, Menu, X } from "lucide-react";
-import Logo from "../../../public/assets/logo2.png";
+import Logo from "../../../../public/assets/logo2.png";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

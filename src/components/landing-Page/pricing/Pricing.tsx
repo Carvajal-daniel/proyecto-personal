@@ -1,5 +1,5 @@
-import Gradient from "@/utils/gradient/Gradient";
-import { Button } from "./ui/Button";
+import Gradient from "@/lib/gradient/Gradient";
+import { Button } from "@/components/ui/Button";
 import { Check } from "lucide-react";
 
 const plans = [

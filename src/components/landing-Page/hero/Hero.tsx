@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Montserrat } from "next/font/google"; // Importamos la fuente elegante
-import { Button } from "./ui/Button";
-import Gradient from "@/utils/gradient/Gradient";
+import { Montserrat } from "next/font/google";
+import Gradient from "@/lib/gradient/Gradient";
+import { Button } from "@/components/ui/Button";
 
 // Configuramos la fuente para el título: Peso 900 (Black) y subconjunto latino
 const fontTitulo = Montserrat({

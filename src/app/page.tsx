@@ -1,6 +1,7 @@
-import Navbar from "@/components/header/NavBar";
-import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
+import Navbar from "@/components/landing-Page/header/NavBar";
+import Hero from "@/components/landing-Page/hero/Hero";
+import Pricing from "@/components/landing-Page/pricing/Pricing";
+
 
 
 export default function Home() {
