@@ -4,11 +4,39 @@ import { useState } from "react";
 import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 const fontTitulo = Montserrat({
   subsets: ["latin"],
   weight: ["900"],
 });
+
+// Variantes otimizadas para formulários densos
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.04, // Stagger bem rápido para muitos inputs
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
@@ -20,14 +48,12 @@ export default function RegisterForm() {
     e.preventDefault();
     setError("");
 
-    // Validación básica de coincidencia
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;
     }
 
     setLoading(true);
-    // Simulación de envío a la API
     setTimeout(() => {
       setLoading(false);
       console.log("Registro exitoso");
@@ -35,11 +61,15 @@ export default function RegisterForm() {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center bg-background px-4 py-10">
-      <div className="w-full max-w-md">
-        
-        {/* Cabecera del Registro */}
-        <div className="text-center mb-10">
+    <section className="relative flex min-h-screen flex-col items-center justify-center bg-background px-4 py-10">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="w-full max-w-md"
+      >
+        {/* Cabecera */}
+        <motion.div variants={itemVariants} className="text-center mb-10">
           <h2 className={`${fontTitulo.className} text-4xl uppercase tracking-tighter text-foreground`}>
             Registro
           </h2>
@@ -50,14 +80,16 @@ export default function RegisterForm() {
             </p>
             <span className="h-1 w-10 bg-secondary rounded-full" />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Card de Formulario */}
-        <div className="bg-white rounded-[1.5rem] p-8 shadow-xl border border-border">
+        {/* Card */}
+        <motion.div 
+          variants={itemVariants}
+          className="bg-white rounded-[1.5rem] p-8 shadow-xl border border-border"
+        >
           <form onSubmit={handleSubmit} className="space-y-5">
-            
-            {/* NOMBRE COMPLETO */}
-            <div className="space-y-2">
+            {/* Campos com itemVariants para efeito cascata rápido */}
+            <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 Nombre Completo
               </label>
@@ -67,10 +99,9 @@ export default function RegisterForm() {
                 placeholder="Ej. Daniel Carvajal"
                 className="w-full px-4 py-2.5 rounded-xl bg-background-soft border border-border focus:border-primary focus:bg-white outline-none transition-all text-foreground placeholder:text-muted"
               />
-            </div>
+            </motion.div>
 
-            {/* WHATSAPP */}
-            <div className="space-y-2">
+            <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 WhatsApp Personal
               </label>
@@ -80,10 +111,9 @@ export default function RegisterForm() {
                 placeholder="+58 412 0000000"
                 className="w-full px-4 py-2.5 rounded-xl bg-background-soft border border-border focus:border-primary focus:bg-white outline-none transition-all text-foreground placeholder:text-muted"
               />
-            </div>
+            </motion.div>
 
-            {/* EMAIL */}
-            <div className="space-y-2">
+            <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 Correo Electrónico
               </label>
@@ -93,10 +123,9 @@ export default function RegisterForm() {
                 placeholder="usuario@email.com"
                 className="w-full px-4 py-2.5 rounded-xl bg-background-soft border border-border focus:border-primary focus:bg-white outline-none transition-all text-foreground placeholder:text-muted"
               />
-            </div>
+            </motion.div>
 
-            {/* PASSWORD */}
-            <div className="space-y-1">
+            <motion.div variants={itemVariants} className="space-y-1">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 Contraseña
               </label>
@@ -108,10 +137,9 @@ export default function RegisterForm() {
                 placeholder="••••••••"
                 className="w-full px-4 py-2.5 rounded-xl bg-background-soft border border-border focus:border-primary focus:bg-white outline-none transition-all text-foreground"
               />
-            </div>
+            </motion.div>
 
-            {/* CONFIRM PASSWORD */}
-            <div className="space-y-2">
+            <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 Confirmar Contraseña
               </label>
@@ -130,20 +158,21 @@ export default function RegisterForm() {
                   {error}
                 </p>
               )}
-            </div>
+            </motion.div>
 
-            {/* BOTÓN DE ACCIÓN */}
-            <Button
-              disabled={loading}
-              size="lg"
-              className="w-full py-6 mt-4 text-sm font-black uppercase tracking-widest bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity rounded-xl shadow-xl shadow-gray-500/30 border-0"
-            >
-              {loading ? "Configurando acceso..." : "Crear mi cuenta"}
-            </Button>
+            <motion.div variants={itemVariants}>
+              <Button
+                type="submit"
+                disabled={loading}
+                size="lg"
+                className="w-full py-6 mt-4 text-sm font-black uppercase tracking-widest bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-all rounded-xl shadow-xl shadow-gray-500/30 border-0 active:scale-[0.98]"
+              >
+                {loading ? "Configurando acceso..." : "Crear mi cuenta"}
+              </Button>
+            </motion.div>
           </form>
 
-          {/* Footer del Registro */}
-          <div className="mt-6 text-center">
+          <motion.div variants={itemVariants} className="mt-6 text-center">
             <p className="text-xs font-medium text-neutral">
               ¿Ya tienes una cuenta?
             </p>
@@ -153,14 +182,16 @@ export default function RegisterForm() {
             >
               Iniciar sesión
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Seguridad */}
-        <p className="mt-6 text-center text-[10px] font-bold text-muted uppercase tracking-[0.2em]">
+        <motion.p 
+          variants={itemVariants}
+          className="mt-6 text-center text-[10px] font-bold text-muted uppercase tracking-[0.2em]"
+        >
           🔒 Datos protegidos por Altair Intelligence
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 }

@@ -10,7 +10,7 @@ const fontLogo = Montserrat({
 export default function LoginPage() {
   return (
     // O fundo usa --background (#F8FBFF) para um ar limpo e arejado
-    <main className="flex min-h-screen items-center justify-center bg-background px-4">
+    <main className="flex min-h-screen overflow-hidden items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
         
         {/* Logo/Título do Sistema */}
@@ -22,13 +22,7 @@ export default function LoginPage() {
         {/* O formulário estilizado que criamos anteriormente */}
         <LoginForm />
         
-        {/* Footer Auxiliar (Opcional, pois o LoginForm já tem um Link de registro) */}
-        <div className="mt-8 text-center">
-          <p className="text-xs font-semibold text-neutral/50 uppercase tracking-widest">
-            Altair Intelligence © 2026
-          </p>
-        </div>
-
+       
       </div>
     </main>
   );

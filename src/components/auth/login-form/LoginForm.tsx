@@ -1,20 +1,53 @@
+"use client";
+
 import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 const fontTitulo = Montserrat({
   subsets: ["latin"],
   weight: ["900"],
 });
 
+// Variantes otimizadas para velocidade e prontidão
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 10 }, // Distância mínima para não parecer lento
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4, // Metade do tempo anterior
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.05, // Stagger ultrarrápido (50ms)
+      delayChildren: 0.05,   // Inicia quase imediatamente
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 5 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+};
+
 export const LoginForm = () => {
   return (
-    // Fondo usa el color --background (#F8FBFF), muy claro y limpio
     <section className="relative flex flex-col items-center justify-center bg-background px-4 py-10">
-      
-      <div className="w-full max-w-md">
-        {/* Cabecera Minimalista */}
-        <div className="text-center mb-10">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={cardVariants}
+        className="w-full max-w-md"
+      >
+        {/* Cabecera */}
+        <motion.div variants={itemVariants} className="text-center mb-10">
           <h2 className={`${fontTitulo.className} text-4xl uppercase tracking-tighter text-foreground`}>
             Login
           </h2>
@@ -25,13 +58,14 @@ export const LoginForm = () => {
             </p>
             <span className="h-1 w-10 bg-secondary rounded-full" />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Card Blanco Puro */}
-        <div className="bg-white rounded-[1.5rem] p-8 shadow-xl py-9 border border-border">
+        {/* Card */}
+        <motion.div 
+          variants={itemVariants}
+          className="bg-white rounded-[1.5rem] p-8 shadow-xl py-9 border border-border"
+        >
           <form className="space-y-6">
-            
-            {/* Input de Email */}
             <div className="space-y-2">
               <label className="text-[11px] font-black uppercase tracking-widest text-neutral ml-1">
                 Correo electrónico
@@ -43,7 +77,6 @@ export const LoginForm = () => {
               />
             </div>
 
-            {/* Input de Contraseña */}
             <div className="space-y-2">
               <div className="flex justify-between items-center ml-1">
                 <label className="text-[11px] font-black uppercase tracking-widest text-neutral">
@@ -60,16 +93,14 @@ export const LoginForm = () => {
               />
             </div>
 
-            {/* Botón Principal con el Gradiente de tus colores */}
             <Button
               size="lg"
-              className="w-full py-6 text-sm font-black uppercase tracking-widest bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity rounded-xl shadow-xl shadow-gray-400/50 border-0"
+              className="w-full py-6 text-sm font-black uppercase tracking-widest bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-all rounded-xl shadow-xl shadow-gray-400/50 border-0 active:scale-[0.98]"
             >
               Entrar al sistema
             </Button>
           </form>
 
-          {/* Footer del Login */}
           <div className="mt-5 text-center">
             <p className="text-xs font-medium text-neutral">
               ¿Aún no tienes acceso?
@@ -81,13 +112,16 @@ export const LoginForm = () => {
               Crear cuenta ahora
             </Link>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Mensaje de Seguridad Discreto */}
-        <p className="mt-4 text-center text-[10px] font-bold text-muted uppercase tracking-[0.2em]">
+        {/* Mensaje de Seguridad */}
+        <motion.p 
+          variants={itemVariants}
+          className="mt-4 text-center text-[10px] font-bold text-muted uppercase tracking-[0.2em]"
+        >
           🔒 Conexión Segura & Encriptada
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 };
