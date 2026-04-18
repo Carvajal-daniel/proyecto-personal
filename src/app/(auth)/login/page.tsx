@@ -10,7 +10,7 @@ const fontLogo = Montserrat({
 export default function LoginPage() {
   return (
     // O fundo usa --background (#F8FBFF) para um ar limpo e arejado
-    <main className="flex min-h-screen overflow-hidden items-center justify-center bg-background px-4">
+    <main className="flex overflow-hidden mt-20 items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
         
         {/* Logo/Título do Sistema */}
