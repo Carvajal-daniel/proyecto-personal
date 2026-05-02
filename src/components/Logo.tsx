@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`inline-flex items-center gap-2 ${className}`}>
@@ -18,7 +20,9 @@ export function Logo({ className = "" }: { className?: string }) {
           fillOpacity="0.95"
         />
       </svg>
-      <span className="text-lg font-semibold tracking-tight">Altair</span>
+      <span className="text-lg font-semibold tracking-tight">
+        <Link href="/">CRM</Link>
+      </span>
     </div>
   );
 }

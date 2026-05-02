@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { ShineButton } from "./ui/ShineButton";
+import { ShineButton } from "../ui/ShineButton";
 
 const partners = [
   { name: "Lumen", color: "from-blue-500 to-cyan-500" },
@@ -17,8 +19,8 @@ export function CTA() {
         className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(124,58,237,0.25), rgba(37,99,235,0.15) 40%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(circle, rgba(124,58,237,0.25), rgba(37,99,235,0.15) 40%, transparent 100%)",
+          filter: "blur(130px)",
         }}
       />
       <motion.div
@@ -41,24 +43,27 @@ export function CTA() {
         </div>
 
         <h2
-          className="font-serif-display leading-tight"
+          className="font-serif-display leading-tight tracking-tight"
           style={{ fontSize: "clamp(2.2rem,4.5vw,3.6rem)" }}
         >
-          Pronto para sua agenda{" "}
-          <span className="italic bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-            voar sozinha?
+          ¿Listo para que tu agenda{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+            funcione sola?
           </span>
         </h2>
+
         <p className="mt-5 text-lg text-altair-muted">
-          Junte-se a milhares de negócios que já automatizam com a Isa.
+          Únete a miles de negocios que ya automatizan con Isa.
         </p>
+
         <div className="mt-9 flex justify-center">
           <ShineButton className="px-7 py-3.5 text-base">
-            Criar minha conta grátis →
+            Crear mi cuenta gratis →
           </ShineButton>
         </div>
+
         <p className="mt-5 text-xs text-altair-muted">
-          14 dias grátis · Sem cartão · Cancele quando quiser
+          14 días gratis · Sin tarjeta · Cancela cuando quieras
         </p>
       </motion.div>
     </section>

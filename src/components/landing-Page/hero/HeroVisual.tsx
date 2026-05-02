@@ -30,7 +30,10 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const sceneVariants: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.18, delayChildren: 0.1 },
+    transition: {
+      delayChildren: 0.8, 
+      staggerChildren: 0.12, 
+    },
   },
 };
 
@@ -46,7 +49,7 @@ const phoneVariants: Variants = {
   hidden: { opacity: 0, x: 32, y: 32 },
   show: {
     opacity: 1, x: 0, y: 0,
-    transition: { duration: 0.65, ease: EASE },
+    transition: { duration: 0.35, ease: EASE },
   },
 };
 
@@ -92,7 +95,7 @@ export function HeroVisual() {
         return;
       }
       setTyping(true);
-      setStatus("digitando...");
+      setStatus("escribiendo...");
       const m = SCRIPT[i];
       timerRef.current = setTimeout(() => {
         setTyping(false);
@@ -111,7 +114,10 @@ export function HeroVisual() {
       <motion.div
         className="relative mx-auto h-[400px] sm:h-[440px] md:h-[480px] max-w-[640px]"
         variants={sceneVariants}
-        initial="hidden"
+         initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }} 
+      transition={{ duration: .8, delay: .3, ease: "easeOut" }}
         animate="show"
       >
 
