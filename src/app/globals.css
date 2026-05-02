@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================
+   🎨 DESIGN TOKENS (GLOBAL)
+========================= */
+@layer base {
+  :root {
+    /* 🎯 BRAND */
+    --primary: #0EA5E9;         /* sky vivo */
+    --secondary: #8B5CF6;       /* lavanda média */
+    --accent: #38BDF8;          /* sky claro */
+
+    /* 🎯 FUNDO */
+    --background: #F8FBFF;      /* branco sky */
+    --background-soft: #F1F5F9; /* slate muito claro */
+
+    /* 🎯 TEXTO */
+    --foreground: #0F172A;      /* slate escuro */
+    --neutral: #334155;         /* texto secundário */
+    --muted: #94A3B8;           /* rótulos e hints */
+
+    /* 🎯 CARDS */
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+
+    /* 🎯 SEÇÕES */
+    --soft-section: #E0F2FE;    /* sky pastel */
+    --soft-section-2: #EDE9FE;  /* lavanda pastel */
+
+    /* 🎯 BORDAS */
+    --border: #DDE4F0;
+    --input: #DDE4F0;
+
+    /* 🎯 INTERAÇÃO */
+    --ring: #0EA5E9;
+    --radius: 0.75rem;
+  }
+}
+
+/* =========================
+   ⚙️ TAILWIND v4 TOKENS
+========================= */
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-neutral: var(--neutral);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-lexend);
+
+  --radius-lg: var(--radius);
+}
+
+/* =========================
+   🌙 DARK MODE (OPCIONAL)
+========================= */
+.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+
+  --card: #111;
+  --card-foreground: #fff;
+
+  --border: #222;
+}
+
+/* =========================
+   🧱 BASE STYLES
+========================= */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-lexend);
+  }
+}
+
+/* =========================
+   ✨ UTILITIES CUSTOM
+========================= */
+@layer utilities {
+  .neon-glow {
+    box-shadow:
+      0 0 40px color-mix(in srgb, var(--primary) 40%, transparent),
+      0 0 80px color-mix(in srgb, var(--primary) 10%, transparent);
+  }
+
+  .neon-glow-sm {
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+
+  .neon-glow-text {
+    text-shadow:
+      0 0 40px color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+
+  .neon-border-active {
+    border: 1px solid var(--primary);
+  }
+
+  .ghost-border {
+    border: 1px solid color-mix(in srgb, var(--neutral) 20%, transparent);
+    transition: 0.3s;
+  }
+
+  .ghost-border:hover {
+    border-color: var(--primary);
+  }
+
+  .glass {
+    background: color-mix(in srgb, var(--neutral) 60%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .label-tech {
+    @apply text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground;
+  }
+
+  .display-lg {
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  .display-md {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+}

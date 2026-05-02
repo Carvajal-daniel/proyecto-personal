@@ -1,0 +1,29 @@
+import { LoginForm } from "@/components/auth/login-form/LoginForm";
+import { Montserrat } from "next/font/google";
+import Link from "next/link";
+
+const fontLogo = Montserrat({
+  subsets: ["latin"],
+  weight: ["900"],
+});
+
+export default function LoginPage() {
+  return (
+    // O fundo usa --background (#F8FBFF) para um ar limpo e arejado
+    <main className="flex overflow-hidden mt-20 items-center justify-center bg-background px-4">
+      <div className="w-full max-w-md">
+        
+        {/* Logo/Título do Sistema */}
+        <div className="text-center mb-6">
+        
+          
+        </div>
+        
+        {/* O formulário estilizado que criamos anteriormente */}
+        <LoginForm />
+        
+       
+      </div>
+    </main>
+  );
+}
