@@ -33,13 +33,11 @@ const AVATARS = [
 export default function HeroText() {
   return (
     <motion.div
-      variants={stagger}
-       initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }} 
-      transition={{ duration: .7, delay: .4, ease: "easeOut" }}
-      className="text-center md:text-left"
-    >
+  variants={stagger}
+  initial="hidden"
+  animate="show"
+  className="text-center md:text-left"
+>
 
       {/* badge */}
       <motion.span

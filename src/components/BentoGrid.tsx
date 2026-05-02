@@ -28,7 +28,7 @@ export function BentoGrid() {
       transition={{ duration: .8, delay: .2, ease: "easeOut" }}
       // -----------------------------------------
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl text-center md:text-left">
         <div className="mb-14 max-w-2xl">
           <p className="text-sm uppercase tracking-widest text-altair-muted">
             Funcionalidades
