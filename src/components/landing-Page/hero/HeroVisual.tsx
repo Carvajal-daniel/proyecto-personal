@@ -117,7 +117,7 @@ export function HeroVisual() {
          initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }} 
-      transition={{ duration: .8, delay: .3, ease: "easeOut" }}
+      transition={{ duration: .8, delay: .5, ease: "easeOut" }}
         animate="show"
       >
 

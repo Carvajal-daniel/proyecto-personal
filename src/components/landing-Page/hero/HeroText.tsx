@@ -37,7 +37,7 @@ export default function HeroText() {
        initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }} 
-      transition={{ duration: .7, delay: .1, ease: "easeOut" }}
+      transition={{ duration: .7, delay: .4, ease: "easeOut" }}
       className="text-center md:text-left"
     >
 
