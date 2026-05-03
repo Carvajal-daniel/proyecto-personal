@@ -11,12 +11,12 @@ interface Message {
 }
 
 const SCRIPT: Omit<Message, "id">[] = [
-  { type: "in",  text: "Oi! Quero agendar um horário 😊",                time: "09:41" },
-  { type: "out", text: "Olá! Tenho amanhã às 14h ou 16h. Qual prefere?", time: "09:41" },
-  { type: "in",  text: "16h perfeito ✨",                                 time: "09:42" },
-  { type: "out", text: "Agendado! 📅 Te envio um lembrete 1h antes 💙",   time: "09:42" },
-  { type: "in",  text: "Obrigada! 🙏",                                    time: "09:43" },
-  { type: "out", text: "Até amanhã! 😊",                                  time: "09:43" },
+  { type: "in",  text: "¡Hola! Quiero agendar una cita 😊",                time: "09:41" },
+  { type: "out", text: "¡Hola! Tengo mañana a las 14h o 16h. ¿Cuál prefieres?", time: "09:41" },
+  { type: "in",  text: "A las 16h perfecto ✨",                                 time: "09:42" },
+  { type: "out", text: "¡Agendado! 📅 Te envío un recordatorio 1h antes 💙",   time: "09:42" },
+  { type: "in",  text: "¡Gracias! 🙏",                                         time: "09:43" },
+  { type: "out", text: "¡Hasta mañana! 😊",                                   time: "09:43" },
 ];
 
 const EVENT_DAYS = new Set([2, 5, 9, 12, 16, 19, 23, 26, 30]);
@@ -72,7 +72,7 @@ const typingVariants: Variants = {
 export function HeroVisual() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [typing, setTyping]     = useState(false);
-  const [status, setStatus]     = useState("online agora");
+  const [status, setStatus]     = useState("en línea ahora");
   const idxRef   = useRef(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const bodyRef  = useRef<HTMLDivElement>(null);
@@ -99,7 +99,7 @@ export function HeroVisual() {
       const m = SCRIPT[i];
       timerRef.current = setTimeout(() => {
         setTyping(false);
-        setStatus("online agora");
+        setStatus("en línea ahora");
         setMessages((prev) => [...prev, { ...m, id: Date.now() }]);
         idxRef.current = i + 1;
         timerRef.current = setTimeout(addNext, 850 + Math.random() * 450);
@@ -121,7 +121,7 @@ export function HeroVisual() {
         animate="show"
       >
 
-        {/* ── CALENDÁRIO ── */}
+        {/* ── CALENDARIO ── */}
         <motion.div
           variants={calVariants}
           className="
@@ -149,7 +149,7 @@ export function HeroVisual() {
           {/* header */}
           <div className="flex items-center justify-between mb-2.5">
             <p className="text-[11px] font-medium tracking-wide text-slate-400 dark:text-slate-500">
-              Maio 2026
+              Mayo 2026
             </p>
             <div className="flex gap-1">
               {["‹", "›"].map((ch) => (
@@ -172,7 +172,7 @@ export function HeroVisual() {
 
           {/* grid */}
           <div className="grid grid-cols-7 gap-[3px]">
-            {["S","T","Q","Q","S","S","D"].map((d, i) => (
+            {["L","M","M","J","V","S","D"].map((d, i) => (
               <div
                 key={`wday-${i}`}
                 className="text-[9px] sm:text-[10px] font-semibold text-slate-400 dark:text-slate-500 text-center pb-1 tracking-wider"
@@ -231,8 +231,8 @@ export function HeroVisual() {
           <div className="hidden sm:flex gap-3 mt-2.5">
             {[
               { color: "bg-emerald-400", label: "confirmado" },
-              { color: "bg-violet-400",  label: "pendente"   },
-              { color: "bg-amber-400",   label: "múltiplos"  },
+              { color: "bg-violet-400",  label: "pendiente"   },
+              { color: "bg-amber-400",   label: "múltiples"  },
             ].map((l) => (
               <div key={l.label} className="flex items-center gap-1.5">
                 <span className={`w-1.5 h-1.5 rounded-full ${l.color}`} />
@@ -244,9 +244,9 @@ export function HeroVisual() {
           {/* stats */}
           <div className="mt-2.5 grid grid-cols-3 gap-2">
             {[
-              { v: "+38",   l: "novos"    },
-              { v: "94%",   l: "ocupação" },
-              { v: "R$12k", l: "receita"  },
+              { v: "+38",   l: "nuevos"    },
+              { v: "94%",   l: "ocupación" },
+              { v: "$12k", l: "ingresos"  },
             ].map((s) => (
               <div
                 key={s.l}
@@ -268,7 +268,7 @@ export function HeroVisual() {
           </div>
         </motion.div>
 
-        {/* ── TELEFONE ── */}
+        {/* ── TELÉFONO ── */}
         <motion.div
           variants={phoneVariants}
           className="
@@ -297,7 +297,7 @@ export function HeroVisual() {
               </div>
             </div>
 
-            {/* mensagens */}
+            {/* mensajes */}
             <div
               ref={bodyRef}
               className="px-2 pt-2 pb-1.5 flex flex-col gap-1.5 overflow-hidden bg-[#0b141a]"
@@ -346,7 +346,7 @@ export function HeroVisual() {
             {/* input bar */}
             <div className="bg-[#1f2c34] mt-5 px-2.5 py-1.5 flex items-center gap-1.5">
               <div className="flex-1 bg-[#2a3942] rounded-full px-2.5 py-1 text-[8px] sm:text-[9px] text-[#8696a0]">
-                Mensagem
+                Mensaje
               </div>
               <div className="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center text-white text-[9px] flex-shrink-0">
                 ➤

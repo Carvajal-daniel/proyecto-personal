@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { SpotlightCard } from "./ui/SpotlightCard";
 
-// Variantes para os itens internos (mantidas)
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 
 const item = {
@@ -20,13 +19,11 @@ export function BentoGrid() {
   return (
     <motion.section
       id="features"
-      className="px-6 py-24 mt-10"
-      // --- ANIMAÇÃO DE ENTRADA DO COMPONENTE ---
+      className="mt-10 px-6 py-24"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }} 
-      transition={{ duration: .8, delay: .2, ease: "easeOut" }}
-      // -----------------------------------------
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="mx-auto max-w-7xl text-center md:text-left">
         <div className="mb-14 max-w-2xl">
@@ -46,7 +43,6 @@ export function BentoGrid() {
         </div>
 
         <div className="grid grid-cols-12 gap-4">
-          {/* Card 1 */}
           <SpotlightCard className="col-span-12 lg:col-span-7 p-7">
             <div className="mb-5">
               <h3 className="font-serif-display text-2xl">Adiós al caos</h3>
@@ -90,7 +86,7 @@ export function BentoGrid() {
                   "María · 09:00 · Corte",
                   "Juan · 11:30 · Barba",
                   "Ana · 14:00 · Coloración",
-                  "Lia · 16:30 · Manicure",
+                  "Lia · 16:30 · Manicura",
                 ].map((t) => (
                   <motion.div
                     key={t}
@@ -105,7 +101,6 @@ export function BentoGrid() {
             </motion.div>
           </SpotlightCard>
 
-          {/* Card 2 */}
           <SpotlightCard className="col-span-12 lg:col-span-5 p-7">
             <div className="flex items-center justify-between">
               <div>
@@ -151,7 +146,6 @@ export function BentoGrid() {
             </div>
           </SpotlightCard>
 
-          {/* Card 3 */}
           <SpotlightCard className="col-span-12 lg:col-span-5 p-7">
             <h3 className="font-serif-display text-2xl">Gestión financiera</h3>
             <p className="text-sm text-altair-muted mt-1">
@@ -191,7 +185,6 @@ export function BentoGrid() {
             </div>
           </SpotlightCard>
 
-          {/* Card 4 */}
           <SpotlightCard className="col-span-12 lg:col-span-7 p-7">
             <h3 className="font-serif-display text-2xl">CRM inteligente</h3>
             <p className="text-sm text-altair-muted mt-1">

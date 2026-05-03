@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShineButton } from "../ui/ShineButton";
+import { shinePrimaryLinkClass } from "@/components/ui/ShineButton";
 
 const partners = [
   { name: "Lumen", color: "from-blue-500 to-cyan-500" },
@@ -27,7 +28,7 @@ export function CTA() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto max-w-3xl text-center"
       >
         <div className="mb-10 flex flex-wrap items-center justify-center gap-6">
@@ -57,9 +58,12 @@ export function CTA() {
         </p>
 
         <div className="mt-9 flex justify-center">
-          <ShineButton className="px-7 py-3.5 text-base">
+          <Link
+            href="/register/client"
+            className={`${shinePrimaryLinkClass} px-7 py-3.5 text-base`}
+          >
             Crear mi cuenta gratis →
-          </ShineButton>
+          </Link>
         </div>
 
         <p className="mt-5 text-xs text-altair-muted">

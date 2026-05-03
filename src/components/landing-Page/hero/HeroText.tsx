@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { ShineButton } from "@/components/ui/ShineButton";
+import { shinePrimaryLinkClass } from "@/components/ui/ShineButton";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -33,28 +34,25 @@ const AVATARS = [
 export default function HeroText() {
   return (
     <motion.div
-  variants={stagger}
-  initial="hidden"
-  animate="show"
-  className="text-center md:text-left"
->
-
-      {/* badge */}
+      variants={stagger}
+      initial="hidden"
+      animate="show"
+      className="text-center md:text-left"
+    >
       <motion.span
         variants={fadeUp}
-        className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur px-3 py-1 text-xs text-gray-600 dark:text-gray-400"
+        className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs text-gray-600 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-400"
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
         </span>
-        IA de Agendamiento — Activo 24/7
+        IA de Agendamiento — Activa 24/7
       </motion.span>
 
-      {/* título */}
       <motion.h1
         variants={fadeUp}
-        className="font-[var(--font-montserrat)] mt-6 text-[2.7rem] md:text-7xl font-medium md:leading-[1.10] leading-12 md:tracking-tight tracking-tight text-gray-800 dark:text-white"
+        className="font-[var(--font-montserrat)] mt-6 text-[2.7rem] font-medium leading-12 tracking-tight text-gray-800 md:text-7xl md:leading-[1.10] md:tracking-tight dark:text-white"
       >
         Tu agenda en{" "}
         <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
@@ -63,38 +61,35 @@ export default function HeroText() {
         con Isa.
       </motion.h1>
 
-      {/* subtítulo */}
       <motion.p
         variants={fadeUp}
-        className="mt-5 mx-auto md:mx-0 max-w-lg text-[1.05rem] md:leading-relaxed text-gray-500 dark:text-gray-400"
+        className="mx-auto mt-5 max-w-lg text-[1.05rem] text-gray-500 md:mx-0 md:leading-relaxed dark:text-gray-400"
       >
-        Isa atiende a tus clientes en WhatsApp, agenda citas,
-        envía recordatorios y mantiene tu agenda llena — automáticamente.
+        Isa atiende a tus clientes en WhatsApp, agenda citas, envía recordatorios y
+        mantiene tu agenda llena — automáticamente.
       </motion.p>
 
-      {/* CTAs */}
       <motion.div
         variants={fadeUp}
-        className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3"
+        className="mt-8 flex flex-wrap items-center justify-center gap-3 md:justify-start"
       >
-        <ShineButton>Comenzar gratis →</ShineButton>
+        <Link href="/register/client" className={`${shinePrimaryLinkClass} px-6 py-3`}>
+          Comenzar gratis →
+        </Link>
 
         <a
-          href="#"
-          className="inline-flex items-center gap-1 border border-gray-200 px-4 py-2 rounded-3xl text-sm text-gray-700 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+          href="#features"
+          className="inline-flex items-center gap-1 rounded-3xl border border-gray-200 px-4 py-2 text-sm text-gray-700 transition-colors hover:text-gray-900 dark:hover:text-gray-200"
         >
           Ver demostración
           <span className="opacity-60">→</span>
         </a>
       </motion.div>
 
-      {/* prova social */}
       <motion.div
         variants={fadeUp}
-        className="mt-10 flex items-center justify-center md:justify-start gap-4"
+        className="mt-10 flex items-center justify-center gap-4 md:justify-start"
       >
-
-        {/* avatars */}
         <div className="flex -space-x-2.5">
           {AVATARS.map((grad, i) => (
             <div
@@ -104,9 +99,8 @@ export default function HeroText() {
           ))}
         </div>
 
-        {/* estrelas + texto */}
-        <div className="text-sm text-center md:text-left">
-          <div className="flex justify-center md:justify-start gap-0.5 text-amber-400">
+        <div className="text-center text-sm md:text-left">
+          <div className="flex justify-center gap-0.5 text-amber-400 md:justify-start">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
             ))}
@@ -114,14 +108,12 @@ export default function HeroText() {
 
           <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
             <span className="font-semibold text-gray-900 dark:text-white">
-              2.400 negocios
+              2,400 negocios
             </span>{" "}
             ya automatizan su agenda
           </p>
         </div>
-
       </motion.div>
-
     </motion.div>
   );
 }
